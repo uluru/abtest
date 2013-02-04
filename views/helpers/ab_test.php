@@ -24,10 +24,9 @@ class AbTestHelper extends AppHelper
 {
     private $abTest;
 
-    public function __construct(View $View)
+    public function __construct()
     {
-        $componentCollection = new ComponentCollection();
-        $this->abTest = new AbTestComponent($componentCollection);
+        $this->abTest = new AbTestComponent();
     }
 
     public function __call($methodName, $args)

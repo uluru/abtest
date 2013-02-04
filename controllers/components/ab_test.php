@@ -41,7 +41,7 @@ class AbTestComponent extends Component
      * @param  ComponentCollection $collection
      * @return void
      */
-    public function __construct(ComponentCollection $collection)
+    public function __construct()
     {
         $abTestSetting = Configure::read('AbTestSetting');
         if ($this->isAbTestSettingProper($abTestSetting)) {
@@ -121,7 +121,7 @@ class AbTestComponent extends Component
             return false;
         }
         if (!isset($this->Session)) {
-            $this->Session = new SessionComponent(new ComponentCollection());
+            $this->Session = new SessionComponent();
         }
         return $this->Session->read('AbTest.'.$key);
     }
@@ -135,7 +135,7 @@ class AbTestComponent extends Component
     private function getAbtestSessionAll()
     {
         if (!isset($this->Session)) {
-            $this->Session = new SessionComponent(new ComponentCollection());
+            $this->Session = new SessionComponent();
         }
         return $this->Session->read('AbTest');
     }
