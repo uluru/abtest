@@ -22,17 +22,42 @@ App::import('Components', 'AbTestComponent');
  */
 class AbTestHelper extends AppHelper
 {
-    private $abTest;
+    private $abTestComponent;
 
-    public function __construct(View $View)
+    /**
+     * beforeRenderFile
+     *
+     * @access public
+     * @param  string $viewfile
+     * @return void
+     */
+    public function beforeRenderFile ($viewfile)
     {
-        $componentCollection = new ComponentCollection();
-        $this->abTest = new AbTestComponent($componentCollection);
+        $this->abTestComponent = $this->_View->getVar("AbTestComponent");
     }
 
-    public function __call($methodName, $args)
+    /**
+     * Start A/B test (Wrapper methodo of AbTestComponent).
+     *
+     * @access public
+     * @param   string $key  Abtest Type
+     * @return  mixed        switched case
+     */
+    public function start ($key)
     {
-        return call_user_func_array(array($this->abTest, $methodName), $args);
+        return $this->abTestComponent->start($key);
+    }
+
+    /**
+     * Get Analytics's JS code for custom value
+     * (Wrapper methodo of AbTestComponent).
+     *
+     * @access public
+     * @return string $result
+     */
+    public function getAnalyticsCustomVar ()
+    {
+        return $this->abTestComponent->getAnalyticsCustomVar();
     }
 }
 
