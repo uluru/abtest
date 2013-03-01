@@ -1,24 +1,17 @@
 <?php
-/*
-                  #   #   #     #   #   ####    #   #
-                  #   #   #     #   #   #   #   #   #
-                  #   #   #     #   #   ####    #   #
-                  #   #   #     #   #   #   #   #   #
-                   ###    ####   ###    #   #    ###
-
-             Copyright 2012 Uluru, Inc. All Rights Reserved.
-*/
-
 App::import('Components', 'AbTestComponent');
 
 /**
  * AB Test Helper
  *
- * AB Test Componentをviewで使うためのヘルパー
+ * For using A/B test component on views.
+ *
+ * @copyright   ULURU.CO.,LTD.
+ * @link        https://github.com/uluru
  * @package     app
  * @subpackage  Helper
  * @since       2012/11/01
- * @author      HASHIDA Kazuhide <k_hashida@uluru.jp>
+ * @author      TAMURA Yoshiya <a@fude-bako.com>
  */
 class AbTestHelper extends AppHelper
 {

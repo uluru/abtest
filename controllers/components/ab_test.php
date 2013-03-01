@@ -1,21 +1,13 @@
 <?php
-/*
-                  #   #   #     #   #   ####    #   #
-                  #   #   #     #   #   #   #   #   #
-                  #   #   #     #   #   ####    #   #
-                  #   #   #     #   #   #   #   #   #
-                   ###    ####   ###    #   #    ###
-
-             Copyright 2012 Uluru, Inc. All Rights Reserved.
-*/
-
 /**
  * AB Test Component
  *
+ * @copyright   ULURU.CO.,LTD.
+ * @link        https://github.com/uluru
  * @package     app
  * @subpackage  Component
  * @since       2012/11/01
- * @author      HASHIDA Kazuhide <k_hashida@uluru.jp>
+ * @author      TAMURA Yoshiya <a@fude-bako.com>
  */
 class AbTestComponent extends Component
 {
