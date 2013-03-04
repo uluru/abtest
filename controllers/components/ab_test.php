@@ -7,7 +7,7 @@
  * @package     app
  * @subpackage  Component
  * @since       2012/11/01
- * @author      TAMURA Yoshiya <a@fude-bako.com>
+ * @author      TAMURA Yoshiya <y_tamura@uluru.jp>
  */
 class AbTestComponent extends Component
 {
