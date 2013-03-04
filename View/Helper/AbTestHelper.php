@@ -11,7 +11,7 @@ App::import('Components', 'AbTestComponent');
  * @package     app
  * @subpackage  Helper
  * @since       2012/11/01
- * @author      TAMURA Yoshiya <a@fude-bako.com>
+ * @author      TAMURA Yoshiya <y_tamura@uluru.jp>
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 class AbTestHelper extends AppHelper
