@@ -9,7 +9,7 @@
  * @since       2012/11/01
  * @author      TAMURA Yoshiya <y_tamura@uluru.jp>
  */
-class AbTestComponent extends Component
+class AbTestComponent extends Object
 {
     /**
      * Keep  A/B test cases of AbTestConfig.
