@@ -139,7 +139,7 @@ class AbTestComponent extends Object
             }
 
             // Write log, if same customValueIndex has set in as session.
-            if (count($abTests) != count($keys)) {
+            if (count($abTests) != count(array_unique($keys))) {
                 $this->log("[AbTestPlugin] Same customValueIndex has been set in a session. customValueIndex should be 1 to $this->maxCustomIndexValue by unique.");
             }
         }
