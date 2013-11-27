@@ -1,22 +1,22 @@
 language: php
 
 php:
-- 5.3
+  - 5.3
 
 before_script:
-- wget https://github.com/cakephp/cakephp/tarball/1.3.15 -O cake.tar.gz
-- tar xf cake.tar.gz
-- mv cakephp-cakephp-* ./cakephp
-- chmod -R 777 ./cakephp/app/tmp
-- wget http://downloads.sourceforge.net/simpletest/simpletest_1.0.1.tar.gz -O simpletest.tar.gz
-- tar xf simpletest.tar.gz
-- mv simpletest/ ./cakephp/app/vendors/
-- echo "<?php
-App::build(array(
-            'plugins' => array('/home/travis/build/ulurudev/'),
-            ));
-  " > cakephp/app/config/bootstrap.php
-- cd ./cakephp
+  - wget https://github.com/cakephp/cakephp/tarball/1.3.15 -O cake.tar.gz
+  - tar xf cake.tar.gz
+  - mv cakephp-cakephp-* ./cakephp
+  - chmod -R 777 ./cakephp/app/tmp
+  - wget http://downloads.sourceforge.net/simpletest/simpletest_1.0.1.tar.gz -O simpletest.tar.gz
+  - tar xf simpletest.tar.gz
+  - mv simpletest/ ./cakephp/app/vendors/
+  - echo "<?php
+    App::build(array(
+    'plugins' => array('/home/travis/build/ulurudev/'),
+    ));
+    " > cakephp/app/config/bootstrap.php
+  - cd ./cakephp
 
 script:
-- php cake/console/cake.php testsuite abtest all
+  - php cake/console/cake.php testsuite abtest all
