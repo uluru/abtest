@@ -36,13 +36,27 @@ class AbTestComponent extends Object
     private $maxCustomIndexValue;
 
     /**
+     * Settings for the Component
+     *
+     * - expire: cookie expire time(second).
+     *           default: 60 * 60 * 24 * 30 = 2592000
+     */
+    private $settings = array(
+        'expires' => 2592000
+    );
+
+    /**
      * Constructor
      *
      * @return void
      */
     public function __construct()
     {
-        $conf = Configure::read('AbTestConfig');
+        $conf = array_merge(
+            $this->settings,
+            Configure::read('AbTestConfig')
+        );
+
         $this->testCases = $conf['testCases'];
         $this->expires = $conf['expires'];
         $this->maxCustomIndexValue = array_key_exists('maxCustomIndexValue', $conf) ? $conf['maxCustomIndexValue'] : 5 ;
@@ -118,20 +132,16 @@ class AbTestComponent extends Object
         $result = "";
         $abTests = $this->readCookieAll();
         if (!empty($abTests)) {
+            $keys = array();
             foreach ($abTests as $key => $value) {
                 $result .= "_gaq.push(['_setCustomVar',".$value['index'].",'$key','".$value['value']."',2]);".PHP_EOL;
+                $keys[] = $value['index'];
             }
-        }
 
-        // Write log, if same customValueIndex has set in as session.
-        $idx = array();
-        $cnt = 0;
-        foreach ($this->readCookieAll() as $value) {
-            $idx[$value['index']] = $value['value'];
-            ++$cnt;
-        }
-        if ($cnt != count($idx)) {
-            $this->log("Error:[AbTestPlugin] Same customValueIndex has been set in a session. customValueIndex should be 1 to $this->maxCustomIndexValue by unique.");
+            // Write log, if same customValueIndex has set in as session.
+            if (count($abTests) != count(array_unique($keys))) {
+                $this->log("[AbTestPlugin] Same customValueIndex has been set in a session. customValueIndex should be 1 to $this->maxCustomIndexValue by unique.");
+            }
         }
 
         return $result;
@@ -249,4 +259,3 @@ class AbTestComponent extends Object
         return true;
     }
 }
-
