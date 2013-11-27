@@ -53,7 +53,5 @@ class AbTestCase extends CakeTestCase
 
         $this->Controller->constructClasses();
         $this->Controller->Component->initialize($this->Controller);
-
-        $this->Controller->AbTest->start('TestCase.1');
     }
 }
