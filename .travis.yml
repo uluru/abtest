@@ -15,7 +15,7 @@ before_script:
 App::build(array(
             'plugins' => array('/home/travis/build/ulurudev/'),
             ));
-" > cakephp/app/config/bootstrap.php
+  " > cakephp/app/config/bootstrap.php
 - cd ./cakephp
 
 script:
