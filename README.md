@@ -82,7 +82,7 @@ Configure::write(
          * A/B test expires setting for AbTest plugin.
          * The split case lasts until its cookie expires set below.
          */
-        'expires' => time() + 60 * 60,
+        'expires' => 60 * 60,
     )
 );
 
