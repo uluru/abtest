@@ -1,6 +1,8 @@
 CakePHP A/B Test Plugin
 ================
 
+[![Build Status](https://travis-ci.org/uluru/abtest.png?branch=1.3)](https://travis-ci.org/uluru/abtest)
+
 CakePHP A/B Test Plugin makes your A/B test easy-configurable and trackable for Google Analytics on both 1.3 and 2.x of CakePHP.
 
 Introduction
