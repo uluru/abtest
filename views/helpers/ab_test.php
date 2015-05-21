@@ -52,5 +52,17 @@ class AbTestHelper extends AppHelper
     {
         return $this->abTestComponent->getAnalyticsCustomVar();
     }
+
+    /**
+     * Get Universal analytics's JS code for custom value.
+     * (Wrapper methodo of AbTestComponent).
+     *
+     * @access public
+     * @return string $result
+     */
+    public function getUniversalAnalyticsDimensionVar ()
+    {
+        return $this->abTestComponent->getUniversalAnalyticsDimensionVar();
+    }
 }
 
