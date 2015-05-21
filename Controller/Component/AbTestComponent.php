@@ -140,6 +140,32 @@ class AbTestComponent extends Component
     }
 
     /**
+     * Get Universal analytics's JS code for custom value.
+     *
+     * @access public
+     * @return string $result
+     */
+    public function getUniversalAnalyticsDimensionVar()
+    {
+        $result = "";
+        $abTests = $this->readCookieAll();
+        if (!empty($abTests)) {
+            $keys = array();
+            foreach ($abTests as $key => $value) {
+                $result .= "ga('set','dimention" . $value['index'] . "','{$value['value']}');".PHP_EOL;
+                $keys[] = $value['index'];
+            }
+
+            // Write log, if same customValueIndex has set in as session.
+            if (count($abTests) != count(array_unique($keys))) {
+                $this->log("[AbTestPlugin] Same customValueIndex has been set in a session. customValueIndex should be 1 to $this->maxCustomIndexValue by unique.");
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Set abtest cookie.
      *
      * @access private
