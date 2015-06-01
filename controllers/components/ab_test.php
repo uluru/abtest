@@ -160,7 +160,7 @@ class AbTestComponent extends Object
         if (!empty($abTests)) {
             $keys = array();
             foreach ($abTests as $key => $value) {
-                $result .= "ga('set','dimention" . $value['index'] . "','{$value['value']}');".PHP_EOL;
+                $result .= "ga('set','dimension" . $value['index'] . "','{$value['value']}');".PHP_EOL;
                 $keys[] = $value['index'];
             }
 
